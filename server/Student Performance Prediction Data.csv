@@ -1,0 +1,22 @@
+Age,Gender,Education_Level,Number_of_Sessions_Completed,Total_Time_Spent_hrs,Time_Spent_Per_Session_mins,Interactions_Clicks,Student_Feedback_Rating
+22,Female,Undergraduate,15,20,40,120,4
+24,Male,Graduate,10,18,50,110,3
+19,Female,High School,20,25,60,150,5
+21,Male,Undergraduate,18,22,45,140,4
+23,Female,Graduate,12,15,55,100,2
+20,Male,High School,25,30,35,160,5
+26,Female,Undergraduate,14,16,48,130,3
+28,Male,Graduate,8,10,60,90,4
+22,Female,High School,17,23,38,110,4
+24,Male,Undergraduate,22,27,52,140,5
+27,Female,Graduate,11,14,45,85,3
+20,Male,Undergraduate,19,24,42,120,5
+23,Female,High School,16,19,47,130,2
+25,Male,Graduate,13,12,54,95,3
+29,Female,Undergraduate,14,20,46,105,4
+21,Male,High School,18,26,39,150,5
+24,Female,Graduate,9,13,53,80,3
+28,Male,Undergraduate,20,28,44,115,4
+20,Female,High School,22,21,51,140,4
+22,Male,Graduate,18,17,49,120,5
+,Female,Graduate,22,32,45,150,
