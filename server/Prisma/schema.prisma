@@ -1,0 +1,59 @@
+generator client {
+  provider             = "prisma-client-py"
+  recursive_type_depth = "5"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id           String      @id @default(cuid())
+  full_name    String      @db.VarChar(120)
+  username     String      @db.VarChar(120)
+  email        String      @unique(map: "user_email_UNIQUE") @db.VarChar(120)
+  status       user_status @default(active)
+  role         user_role   @default(member) // Fixed role type
+  password     String      @db.VarChar(255)
+  created_at   DateTime    @default(now()) @db.Timestamp(0)
+  updated_at   DateTime    @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+enum user_status {
+  active
+  inactive
+}
+
+enum user_role {
+  admin
+  member
+  moderator
+}
+
+model project {
+  id          String   @id @default(cuid())
+  title       String   @db.VarChar(25)
+  description String   @db.VarChar(255)
+  user_id     String
+  deadline    DateTime
+  created_at  DateTime @default(now()) @db.Timestamp(0)
+  updated_at  DateTime @default(now()) @updatedAt @db.Timestamp(0)
+
+  @@index([user_id], map: "project_user_idx")
+}
+
+model Session {
+  id            String   @id @default(cuid())
+  title         String   @db.VarChar(120)
+  description   String   @db.VarChar(255)
+  user_id       String   @db.VarChar(120)  // User ID as a string
+  deadline      DateTime
+  meeting_link  String   @db.VarChar(255)
+  instructor    String   @db.VarChar(120)
+  unit_name     String   @db.VarChar(120)
+  created_at    DateTime @default(now()) @db.Timestamp(0)
+  updated_at    DateTime @default(now()) @updatedAt @db.Timestamp(0)
+
+  @@index([user_id], map: "session_user_idx") 
+}
